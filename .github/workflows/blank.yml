@@ -20,13 +20,10 @@ jobs:
     - name: Run build script
       run: |
         node build/build-icons.js
-
         
-      # Job for Minify-JS
-    - name: Minify-JS Action
-      uses: jossydevers/minify-js@v1.0.0
+      - name: Minify Action
+        uses: anthonyftwang/minify-action@v1.0.1
 
-          
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
