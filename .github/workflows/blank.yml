@@ -21,6 +21,15 @@ jobs:
       run: |
         node build/build-icons.js
 
+        
+      # Job for Minify-JS
+      - name: Minify-JS Action
+        uses: jossydevers/minify-js@v1.0.0
+        #with:
+          #directory: 'src/component.js' # (OPTIONAL)
+          #output: 'minify/src/' # (OPTIONAL)
+
+          
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
