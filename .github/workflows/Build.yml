@@ -26,20 +26,10 @@ jobs:
     - name: Build studio-icons_beta.js
       run: node build-script.js
 
-    - name: Auto Minify
-      uses: nizarmah/auto-minify@v3.0.0
-      with:
-        directory: 'output'
-        # Directory that contains the minified files. Defaults to same directory
-        #output: # optional, default is 
-        # Overwrites the existing files with the minified version. Defaults to false.
-        #overwrite: yes # optional, default is false
-        # Descend at most levels (a non-negative integer) levels of directories below the starting-points.
-        #maxdepth: # optional, default is 
-        # Specifies which of the supported packages minifies JS files.
-        #js_engine: # optional, default is babel
-        # Specifies which of the supported packages minifies CSS files.
-        #css_engine: # optional, default is lightning
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Minify Action
+      uses: dra1ex/minify-action@v1.0.3
           
 
     - name: Commit changes
