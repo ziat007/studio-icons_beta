@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const UglifyJS = require('uglify-js');
 
 const inputDir = './lottie-json';
 const outputFile = './src/studio-icons_beta.js';
@@ -28,7 +29,15 @@ code continues here`;
 
 const finalContent = `${contentBefore}${JSON.stringify(iconTemplates, null, 2)}${contentAfter}`;
 
-// Write to the output file
-fs.writeFileSync(outputFile, finalContent);
+// Minify the content
+const minified = UglifyJS.minify(finalContent);
 
-console.log('studio-icons_beta.js has been updated');
+if (minified.error) {
+  console.error('Error during minification', minified.error);
+  process.exit(1);
+}
+
+// Write to the output file
+fs.writeFileSync(outputFile, minified.code);
+
+console.log('studio-icons_beta.js has been updated and minified');
