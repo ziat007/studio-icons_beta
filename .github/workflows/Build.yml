@@ -30,7 +30,7 @@ jobs:
       uses: nizarmah/auto-minify@v3.0.0
       with:
         # Directory that contains the files you want to minify. Defaults to current directory (.)
-        directory: output/ # optional, default is .
+        directory: .output/ # optional, default is .
         # Directory that contains the minified files. Defaults to same directory
         #output: # optional, default is 
         # Overwrites the existing files with the minified version. Defaults to false.
