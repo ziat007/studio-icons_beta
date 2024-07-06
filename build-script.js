@@ -25,6 +25,6 @@ var iconTemplates = ${JSON.stringify(iconTemplates, null, 2)};
 ${templateEnd}`;
 
 // Write the final content to the output file
-fs.writeFileSync('src/studio-icons_beta.js', finalContent);
+fs.writeFileSync('output/studio-icons_beta.js', finalContent);
 
 console.log('studio-icons_beta.js has been generated successfully.');
